@@ -21,7 +21,7 @@ public class ProductoRestController {
         return productoService.findAll();
     }
 
-    @GetMapping("/productos/{id}")
+    @GetMapping("/productos/{codigo}")
     public ProductoDTO show(@PathVariable Integer codigo) {
         ProductoDTO objProducto = null;
         objProducto = productoService.findById(codigo);

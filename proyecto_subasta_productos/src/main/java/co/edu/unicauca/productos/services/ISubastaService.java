@@ -10,5 +10,5 @@ public interface ISubastaService {
     public SubastaDTO save(SubastaDTO subasta, Integer codigo);
     public SubastaDTO update(Integer codigo, SubastaDTO subasta);
     public void delete(Integer codigo);
-    public SubastaDTO disabledByCodigo(Integer codigo);
+    public SubastaDTO disabledByCodigo(SubastaDTO subasta, Integer codigo);
 }

@@ -53,5 +53,5 @@ public class SubastaRestController {
         //return bandera;
     }
     @PutMapping("/subastas/disabled/{codigo}")
-    public SubastaDTO disabledByCodigo(@PathVariable Integer codigo){ return this.subastaService.disabledByCodigo(codigo);}
+    public SubastaDTO disabledByCodigo(@RequestBody SubastaDTO subasta, @PathVariable Integer codigo){ return this.subastaService.disabledByCodigo(subasta, codigo);}
 }
