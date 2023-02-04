@@ -1,6 +1,7 @@
 package co.edu.unicauca.productos.services;
 
 import co.edu.unicauca.productos.models.ProductoEntity;
+import co.edu.unicauca.productos.repositories.IProductoRepository;
 import co.edu.unicauca.productos.repositories.ProductoRepository;
 import co.edu.unicauca.productos.services.DTO.ProductoDTO;
 import org.modelmapper.ModelMapper;
@@ -14,7 +15,7 @@ import java.util.List;
 public class ProductoServiceImpl implements IProductoService{
 
     @Autowired
-    private ProductoRepository servicioAccesoBaseDatos;
+    private IProductoRepository servicioAccesoBaseDatos;
     @Autowired
     private ModelMapper modelMapper;
 
@@ -27,7 +28,7 @@ public class ProductoServiceImpl implements IProductoService{
 
     @Override
     public ProductoDTO findById(Integer codigo) {
-        ProductoEntity objProductoEntity= this.servicioAccesoBaseDatos.findById(codigo);
+        ProductoEntity objProductoEntity= this.servicioAccesoBaseDatos.findById(codigo).orElse(null);
         ProductoDTO productoDTO=this.modelMapper.map(objProductoEntity, ProductoDTO.class);
         return productoDTO;
     }
@@ -43,13 +44,18 @@ public class ProductoServiceImpl implements IProductoService{
     @Override
     public ProductoDTO update(Integer codigo, ProductoDTO producto) {
         ProductoEntity productoEntity=this.modelMapper.map(producto, ProductoEntity.class);
-        ProductoEntity productoEntityActualizado= this.servicioAccesoBaseDatos.update(codigo, productoEntity);
+        ProductoDTO productoDTO1 = this.findById(codigo);
+        ProductoEntity productoEntity1 =this.modelMapper.map(productoDTO1, ProductoEntity.class);
+        productoEntity1.setCodigo(productoEntity.getCodigo());
+        productoEntity1.setNombre(productoEntity.getNombre());
+        productoEntity1.setValor_inicial(productoEntity.getValor_inicial());
+        ProductoEntity productoEntityActualizado= this.servicioAccesoBaseDatos.save(productoEntity1);
         ProductoDTO productoDTO=this.modelMapper.map(productoEntityActualizado, ProductoDTO.class);
         return productoDTO;
     }
 
     @Override
-    public boolean delete(Integer codigo) {
-        return this.servicioAccesoBaseDatos.delete(codigo);
+    public void delete(Integer codigo) {
+        this.servicioAccesoBaseDatos.deleteById(codigo);
     }
 }

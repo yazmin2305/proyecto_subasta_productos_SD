@@ -1,6 +1,8 @@
 package co.edu.unicauca.productos.controllers;
 
+import co.edu.unicauca.productos.services.DTO.ProductoDTO;
 import co.edu.unicauca.productos.services.DTO.SubastaDTO;
+import co.edu.unicauca.productos.services.IProductoService;
 import co.edu.unicauca.productos.services.ISubastaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,10 +26,10 @@ public class SubastaRestController {
         objSubasta = subastaService.findById(codigo);
         return objSubasta;
     }
-    @PostMapping("/subastas")
-    public SubastaDTO create(@RequestBody SubastaDTO subasta) {
+    @PostMapping("/subastas/{codigoP}")
+    public SubastaDTO create(@RequestBody SubastaDTO subasta, @PathVariable Integer codigoP) {
         SubastaDTO objSubasta = null;
-        objSubasta =  subastaService.save(subasta);
+        objSubasta =  subastaService.save(subasta, codigoP);
         return objSubasta;
     }
     @PutMapping("/subastas/{codigo}")
@@ -41,14 +43,14 @@ public class SubastaRestController {
         return objSubasta;
     }
     @DeleteMapping("/subastas/{codigo}")
-    public Boolean delete(@PathVariable Integer codigo) {
-        Boolean bandera=false;
+    public void delete(@PathVariable Integer codigo) {
+        //Boolean bandera=false;
         SubastaDTO subastaActual = subastaService.findById(codigo);
         if(subastaActual!=null)
         {
-            bandera = subastaService.delete(codigo);
+            subastaService.delete(codigo);
         }
-        return bandera;
+        //return bandera;
 
     }
 }

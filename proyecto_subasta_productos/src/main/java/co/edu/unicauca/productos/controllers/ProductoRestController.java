@@ -44,14 +44,14 @@ public class ProductoRestController {
         return objProducto;
     }
     @DeleteMapping("/productos/{codigo}")
-    public Boolean delete(@PathVariable Integer codigo) {
+    public void delete(@PathVariable Integer codigo) {
         Boolean bandera=false;
         ProductoDTO productoActual = productoService.findById(codigo);
         if(productoActual!=null)
         {
-            bandera = productoService.delete(codigo);
+            productoService.delete(codigo);
         }
-        return bandera;
+        //return bandera;
 
     }
 }

@@ -9,5 +9,5 @@ public interface IProductoService {
     public ProductoDTO findById(Integer codigo);
     public ProductoDTO save(ProductoDTO producto);
     public ProductoDTO update(Integer codigo, ProductoDTO producto);
-    public boolean delete(Integer codigo);
+    public void delete(Integer codigo);
 }

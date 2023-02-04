@@ -1,6 +1,8 @@
 package co.edu.unicauca.productos.repositories;
 
+import co.edu.unicauca.productos.models.ProductoEntity;
 import co.edu.unicauca.productos.models.SubastaEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -9,6 +11,8 @@ import java.util.List;
 @Repository
 public class SubastaRepository {
     private ArrayList<SubastaEntity> listaSubastas;
+    @Autowired
+    private ProductoRepository objProductoRepository;
 
     public SubastaRepository(){
         this.listaSubastas = new ArrayList<SubastaEntity>();
@@ -29,11 +33,13 @@ public class SubastaRepository {
         }
         return objSubasta;
     }
-    public SubastaEntity save(SubastaEntity subasta){
+    public SubastaEntity save(SubastaEntity subasta, Integer codigo){
         System.out.println("Invocando almacenar subasta");
         SubastaEntity objSubasta = null;
+        ProductoEntity objProductoEntity = objProductoRepository.findById(codigo);
         if(this.listaSubastas.add(subasta)){
             objSubasta = subasta;
+            objSubasta.setObjProducto(objProductoEntity);
         }
         return objSubasta;
     }

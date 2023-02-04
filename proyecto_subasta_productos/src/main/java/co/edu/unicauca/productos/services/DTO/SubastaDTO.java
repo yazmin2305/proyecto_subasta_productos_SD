@@ -12,7 +12,7 @@ public class SubastaDTO {
     private Integer codigo;
     private Float valor_actual;
     private String estado;
-    private ProductoEntity objProducto;
+    private ProductoDTO objProducto;
 
     public  SubastaDTO(){}
 }

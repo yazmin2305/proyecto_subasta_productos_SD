@@ -3,12 +3,14 @@ package co.edu.unicauca.productos.repositories;
 import co.edu.unicauca.productos.models.ProductoEntity;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
 public class ProductoRepository {
     private ArrayList<ProductoEntity> listaProductos;
+    private Connection conn;
 
     public ProductoRepository(){
         this.listaProductos = new ArrayList<ProductoEntity>();

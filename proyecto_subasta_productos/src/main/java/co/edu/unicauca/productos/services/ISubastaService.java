@@ -7,7 +7,8 @@ import java.util.List;
 public interface ISubastaService {
     public List<SubastaDTO> findAll();
     public SubastaDTO findById(Integer codigo);
-    public SubastaDTO save(SubastaDTO subasta);
+    public SubastaDTO save(SubastaDTO subasta, Integer codigo);
     public SubastaDTO update(Integer codigo, SubastaDTO subasta);
-    public boolean delete(Integer codigo);
+    public void delete(Integer codigo);
+    public SubastaDTO disabledByCodigo(Integer codigo);
 }
