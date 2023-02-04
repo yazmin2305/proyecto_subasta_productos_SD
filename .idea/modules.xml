@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/FrontEnd_subasta_administradores/FrontEnd_subasta_administradores.iml" filepath="$PROJECT_DIR$/FrontEnd_subasta_administradores/FrontEnd_subasta_administradores.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FrontEnd_subasta_clientes/FrontEnd_subasta_clientes.iml" filepath="$PROJECT_DIR$/FrontEnd_subasta_clientes/FrontEnd_subasta_clientes.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Trabajo final.iml" filepath="$PROJECT_DIR$/.idea/Trabajo final.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proyecto_subasta_productos/proyecto_final_productos.iml" filepath="$PROJECT_DIR$/proyecto_subasta_productos/proyecto_final_productos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proyecto_subasta_usuarios/proyecto_final_usuarios.iml" filepath="$PROJECT_DIR$/proyecto_subasta_usuarios/proyecto_final_usuarios.iml" />
     </modules>
   </component>
 </project>

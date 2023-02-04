@@ -3,11 +3,13 @@ package co.edu.unicauca.ususarios.repositories;
 import co.edu.unicauca.ususarios.models.AdministradorEntity;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 @Repository
 public class AdminRepository {
     private ArrayList<AdministradorEntity> listaDeAdministradores;
+    private Connection conn;
     public AdminRepository(){
         this.listaDeAdministradores= new ArrayList<AdministradorEntity>();
     }
@@ -61,4 +63,6 @@ public class AdminRepository {
         }
         return bandera;
     }
+
+
 }

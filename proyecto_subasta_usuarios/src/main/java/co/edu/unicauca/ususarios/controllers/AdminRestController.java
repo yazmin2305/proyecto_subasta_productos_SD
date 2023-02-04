@@ -46,13 +46,16 @@ public class AdminRestController {
         return objAdmin;
     }
     @DeleteMapping("/admin/{id}")
-    public Boolean delete(@PathVariable Integer id) {
-        Boolean bandera=false;
+    public void delete(@PathVariable Integer id) {
         UsuarioDTO administradorActual = administradorService.findById(id);
         if(administradorActual!=null){
-            bandera = administradorService.delete(id);
+            administradorService.deleteById(id);
         }
-        return bandera;
+    }
 
+    @GetMapping("/iniciarSesionAdmin/{login}/{contrasenia}")
+    public boolean iniciarSesion(@PathVariable String login,@PathVariable String contrasenia) {
+        boolean existeAdmin = administradorService.iniciarSesion(login, contrasenia);
+        return existeAdmin;
     }
 }

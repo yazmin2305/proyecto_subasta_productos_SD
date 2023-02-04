@@ -47,13 +47,16 @@ public class ClienteRestController {
         return objCliente;
     }
     @DeleteMapping("/clientes/{id}")
-    public Boolean delete(@PathVariable Integer id) {
-        Boolean bandera=false;
+    public void delete(@PathVariable Integer id) {
         UsuarioDTO clienteActual = clienteService.findById(id);
         if(clienteActual!=null){
-            bandera = clienteService.delete(id);
+            clienteService.deleteById(id);
         }
-        return bandera;
 
+    }
+    @GetMapping("/clientes/iniciarSesionCli/{login}/{contrasenia}")
+    public boolean iniciarSesion(@PathVariable String login,@PathVariable String contrasenia) {
+        boolean existeCliente = clienteService.iniciarSesion(login, contrasenia);
+        return existeCliente;
     }
 }
