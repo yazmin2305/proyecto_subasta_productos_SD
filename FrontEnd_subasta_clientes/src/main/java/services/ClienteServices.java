@@ -39,11 +39,11 @@ public class ClienteServices {
         return objCliente;
     }
 
-    public boolean iniciarSesionCli(String login, String contrasenia) {
+    public boolean inicioSesionCli(String login, String contrasenia) {
         
         Boolean bandera = false;
 
-        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/iniciarSesionCli" + "/" + login + "/" + contrasenia);
+        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/inicioSesionCli" + "/" + login + "/" + contrasenia);
 
         Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
 

@@ -53,7 +53,7 @@ public class AdminRestController {
         }
     }
 
-    @GetMapping("/iniciarSesionAdmin/{login}/{contrasenia}")
+    @GetMapping("admin/inicioSesionAdmin/{login}/{contrasenia}")
     public boolean iniciarSesion(@PathVariable String login,@PathVariable String contrasenia) {
         boolean existeAdmin = administradorService.iniciarSesion(login, contrasenia);
         return existeAdmin;

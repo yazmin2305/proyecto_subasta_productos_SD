@@ -54,7 +54,7 @@ public class ClienteRestController {
         }
 
     }
-    @GetMapping("/clientes/iniciarSesionCli/{login}/{contrasenia}")
+    @GetMapping("/clientes/inicioSesionCli/{login}/{contrasenia}")
     public boolean iniciarSesion(@PathVariable String login,@PathVariable String contrasenia) {
         boolean existeCliente = clienteService.iniciarSesion(login, contrasenia);
         return existeCliente;

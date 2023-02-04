@@ -11,6 +11,8 @@ public class Administrador {
     private String login;
     private String contrasenia;
 
+    public Administrador(){}
+    
     public Administrador(Integer id, String nombres, String apellidos, String login, String contrasenia) {
         this.id = id;
         this.nombres = nombres;
