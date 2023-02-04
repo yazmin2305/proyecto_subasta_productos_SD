@@ -60,4 +60,10 @@ public class ProductoServiceImpl implements IProductoService{
     public void delete(Integer codigo) {
         this.servicioAccesoBaseDatos.deleteById(codigo);
     }
+
+    public List<ProductoDTO> productosSubasta(String estado){
+        List<ProductoEntity> productosSubasta = this.servicioAccesoBaseDatos.productosSubasta(estado);
+        List<ProductoDTO> productosSubastaDTO = this.modelMapper.map(productosSubasta, new TypeToken<List<ProductoDTO>>() {}.getType());
+        return productosSubastaDTO;
+    }
 }

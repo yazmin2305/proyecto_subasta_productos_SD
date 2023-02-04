@@ -10,4 +10,6 @@ public interface IProductoService {
     public ProductoDTO save(ProductoDTO producto);
     public ProductoDTO update(Integer codigo, ProductoDTO producto);
     public void delete(Integer codigo);
+    public List<ProductoDTO> productosSubasta(String estado);
+
 }
