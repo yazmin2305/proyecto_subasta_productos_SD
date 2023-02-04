@@ -17,6 +17,7 @@ public class ProductoEntity {
 
     private String nombre;
     private Float valor_inicial;
+    private String estado;
 
     public ProductoEntity(){
 

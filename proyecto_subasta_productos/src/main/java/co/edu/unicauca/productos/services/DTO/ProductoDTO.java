@@ -11,5 +11,7 @@ public class ProductoDTO {
     private Integer codigo;
     private String nombre;
     private Float valor_inicial;
+    private String estado;
+
     public ProductoDTO(){}
 }

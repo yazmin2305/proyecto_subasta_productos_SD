@@ -36,8 +36,9 @@ public class ProductoServiceImpl implements IProductoService{
     @Override
     public ProductoDTO save(ProductoDTO producto) {
         ProductoEntity productoEntity=this.modelMapper.map(producto, ProductoEntity.class);
-        ProductoEntity objCLienteEntity= this.servicioAccesoBaseDatos.save(productoEntity);
-        ProductoDTO productoDTO=this.modelMapper.map(objCLienteEntity, ProductoDTO.class);
+        productoEntity.setEstado("En espera");
+        ProductoEntity objProductoEntity= this.servicioAccesoBaseDatos.save(productoEntity);
+        ProductoDTO productoDTO=this.modelMapper.map(objProductoEntity, ProductoDTO.class);
         return productoDTO;
     }
 
@@ -49,6 +50,7 @@ public class ProductoServiceImpl implements IProductoService{
         productoEntity1.setCodigo(productoEntity.getCodigo());
         productoEntity1.setNombre(productoEntity.getNombre());
         productoEntity1.setValor_inicial(productoEntity.getValor_inicial());
+        productoEntity1.setEstado(productoEntity.getEstado());
         ProductoEntity productoEntityActualizado= this.servicioAccesoBaseDatos.save(productoEntity1);
         ProductoDTO productoDTO=this.modelMapper.map(productoEntityActualizado, ProductoDTO.class);
         return productoDTO;

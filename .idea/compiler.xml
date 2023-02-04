@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="proyecto_final_productos" />
         <module name="FrontEnd_subasta_clientes" />
+        <module name="proyecto_final_usuarios" />
         <module name="FrontEnd_subasta_administradores" />
       </profile>
     </annotationProcessing>

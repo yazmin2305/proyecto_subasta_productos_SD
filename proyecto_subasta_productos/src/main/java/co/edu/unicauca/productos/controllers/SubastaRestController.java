@@ -51,6 +51,7 @@ public class SubastaRestController {
             subastaService.delete(codigo);
         }
         //return bandera;
-
     }
+    @PutMapping("/subastas/disabled/{codigo}")
+    public SubastaDTO disabledByCodigo(@PathVariable Integer codigo){ return this.subastaService.disabledByCodigo(codigo);}
 }

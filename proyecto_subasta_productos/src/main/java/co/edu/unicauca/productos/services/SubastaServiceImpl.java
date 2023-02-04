@@ -42,6 +42,7 @@ public class SubastaServiceImpl implements ISubastaService {
         SubastaEntity subastaEntity=this.modelMapper.map(subasta, SubastaEntity.class);
         ProductoEntity objP = servicioAccesoBaseDatosProducto.findById(codigoP).orElse(null);
         subastaEntity.setObjProducto(objP);
+        subastaEntity.getObjProducto().setEstado("Subastando");
         SubastaEntity objSubastaEntity= this.servicioAccesoBaseDatos.save(subastaEntity);
         SubastaDTO subastaDTO=this.modelMapper.map(objSubastaEntity, SubastaDTO.class);
         return subastaDTO;
@@ -70,6 +71,7 @@ public class SubastaServiceImpl implements ISubastaService {
     public SubastaDTO disabledByCodigo(Integer codigo) {
         SubastaDTO objS = this.findById(codigo);
         objS.setEstado("Cerrada");
+        objS.getObjProducto().setEstado("Subastado");
         SubastaEntity objSubastaEntModificado = this.modelMapper.map(objS, SubastaEntity.class);
         SubastaEntity objSubastaEntRetornado = servicioAccesoBaseDatos.save(objSubastaEntModificado);
         SubastaDTO objSubastaDTOModificado = this.modelMapper.map(objSubastaEntRetornado, SubastaDTO.class);
