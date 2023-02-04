@@ -10,5 +10,6 @@ public interface IUsuarioService {
     public UsuarioDTO findById(Integer id);
     public UsuarioDTO save(UsuarioDTO cliente);
     public UsuarioDTO update(Integer id, UsuarioDTO cliente);
-    public boolean delete(Integer id);
+    public void deleteById(Integer id);
+    public boolean iniciarSesion(String login, String contrasenia);
 }
