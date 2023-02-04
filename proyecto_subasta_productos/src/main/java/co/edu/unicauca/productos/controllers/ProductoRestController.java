@@ -52,6 +52,10 @@ public class ProductoRestController {
             productoService.delete(codigo);
         }
         //return bandera;
+    }
+    @GetMapping("admin/productosSubasta/{estado}")
+    public List<ProductoDTO> productosSubasta(@PathVariable String estado) {
+        return productoService.productosSubasta(estado);
 
     }
 }
