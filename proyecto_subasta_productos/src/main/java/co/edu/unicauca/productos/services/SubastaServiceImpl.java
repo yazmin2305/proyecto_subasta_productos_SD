@@ -80,4 +80,18 @@ public class SubastaServiceImpl implements ISubastaService {
         SubastaDTO objSubastaDTOModificado = this.modelMapper.map(objSubastaEntRetornado, SubastaDTO.class);
         return objSubastaDTOModificado;
     }
+
+    @Override
+    public boolean consultarValorActualSubasta(Float oferta, Integer codigoP) {
+        boolean respuesta = false;
+        SubastaEntity objS = this.servicioAccesoBaseDatos.consultarValorActualSubasta(codigoP);
+        String estadoProducto = this.servicioAccesoBaseDatosProducto.consultarEstadoProducto(codigoP);
+        if(oferta > objS.getValor_actual() && estadoProducto.equals("Subastando")){
+            objS.setValor_actual(oferta);
+            SubastaEntity objSmodificado = servicioAccesoBaseDatos.save(objS);
+            System.out.println("ENTRAAAAAAAAAAA YEIIIIII");
+            respuesta = true;
+        }
+        return respuesta;
+    }
 }
