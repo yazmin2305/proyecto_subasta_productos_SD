@@ -169,7 +169,8 @@ public class JDialogMenuCliente extends javax.swing.JDialog {
     }//GEN-LAST:event_btnOfrecerOfertaActionPerformed
 
     private void btnConsultarSubastaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarSubastaActionPerformed
-        // TODO add your handling code here:
+        consultarSubasta();
+// TODO add your handling code here:
     }//GEN-LAST:event_btnConsultarSubastaActionPerformed
 
     public void consultarProducto(){

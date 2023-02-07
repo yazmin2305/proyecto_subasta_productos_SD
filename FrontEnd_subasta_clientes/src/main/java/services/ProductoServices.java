@@ -13,7 +13,7 @@ import org.glassfish.jersey.jackson.JacksonFeature;
 
 /**
  *
- * @author Lenovo
+ * @author YazminG, ErikaC
  */
 public class ProductoServices {
     private String endPoint;
