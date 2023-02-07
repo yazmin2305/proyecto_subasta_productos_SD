@@ -5,12 +5,15 @@
  */
 package view;
 
+import javax.swing.JOptionPane;
+import models.Producto;
 import models.Subasta;
+import services.ProductoServices;
 import services.SubastaServices;
 
 /**
  *
- * @author eri-k
+ * @author YazminG, ErikaC
  */
 public class JPanelCerrarSubasta extends javax.swing.JPanel {
 
@@ -92,12 +95,21 @@ public class JPanelCerrarSubasta extends javax.swing.JPanel {
     private void btnCerrarSubastaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSubastaActionPerformed
         cerrarSubasta();
     }//GEN-LAST:event_btnCerrarSubastaActionPerformed
-    private void cerrarSubasta(){
-        SubastaServices objServices = new SubastaServices();
-        Subasta objSubasta = objServices.consultarSubasta(Integer.parseInt(this.txtCodigo.getText()));
-        objServices.cerrarSubasta(objSubasta, Integer.parseInt(this.txtCodigo.getText()));        
-    }
+    private void cerrarSubasta() {
+        try {
+            SubastaServices objServices = new SubastaServices();
+            ProductoServices objPServices = new ProductoServices();
+            Producto objP = objPServices.consultarProducto(Integer.parseInt(this.txtCodigo.getText()));
+            if (objP != null) {
+                Subasta objSubasta = objServices.consultarSubastaActual(Integer.parseInt(this.txtCodigo.getText()));
+                objServices.cerrarSubasta(objSubasta, objSubasta.getCodigo());
+                JOptionPane.showMessageDialog(this, "Subasta cerrada.", "Cerrar Subasta", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "El producto no existe.", "Cerrar Subasta", JOptionPane.WARNING_MESSAGE);
+        }
 
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSubasta;
     private javax.swing.JLabel jLabel1;

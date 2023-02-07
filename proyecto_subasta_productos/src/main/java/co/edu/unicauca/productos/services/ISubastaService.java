@@ -12,6 +12,6 @@ public interface ISubastaService {
     public SubastaDTO update(Integer codigo, SubastaDTO subasta);
     public void delete(Integer codigo);
     public SubastaDTO disabledByCodigo(SubastaDTO subasta, Integer codigo);
-    public boolean consultarValorActualSubasta(Float oferta, Integer codigoP);
+    public SubastaDTO consultarSubastaActual(Integer codigoP);
     public Float valorActualSubasta(Integer codigoP);
 }

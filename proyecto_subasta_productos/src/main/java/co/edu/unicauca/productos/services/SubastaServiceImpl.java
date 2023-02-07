@@ -43,6 +43,7 @@ public class SubastaServiceImpl implements ISubastaService {
         ProductoEntity objP = servicioAccesoBaseDatosProducto.findById(codigoP).orElse(null);
         subastaEntity.setEstado("Abierta");
         subastaEntity.setObjProducto(objP);
+        subastaEntity.setValor_actual(objP.getValor_inicial());
         subastaEntity.getObjProducto().setEstado("Subastando");
         SubastaEntity objSubastaEntity= this.servicioAccesoBaseDatos.save(subastaEntity);
         SubastaDTO subastaDTO=this.modelMapper.map(objSubastaEntity, SubastaDTO.class);
@@ -83,20 +84,10 @@ public class SubastaServiceImpl implements ISubastaService {
     }
 
     @Override
-    public boolean consultarValorActualSubasta(Float oferta, Integer codigop) {
-        boolean respuesta = false;
-        SubastaDTO objSubastaDTOModificado = null;
-
-        SubastaEntity objS = this.servicioAccesoBaseDatos.consultarValorActualSubasta(codigop);
-        String estadoProducto = this.servicioAccesoBaseDatosProducto.consultarEstadoProducto(codigop);
-        if(oferta > objS.getValor_actual() && estadoProducto.equals("Subastando")){
-            objS.setValor_actual(oferta);
-            SubastaEntity objSmodificado = servicioAccesoBaseDatos.save(objS);
-            //objSubastaDTOModificado = this.modelMapper.map(objSmodificado, SubastaDTO.class);
-            System.out.println("ENTRAAAAAAAAAAA YEIIIIII");
-            respuesta = true;
-        }
-        return respuesta;
+    public SubastaDTO consultarSubastaActual(Integer codigop) {
+        SubastaEntity subastaEntity = servicioAccesoBaseDatos.consultarSubastaActual(codigop);
+        SubastaDTO subasta = this.modelMapper.map(subastaEntity, SubastaDTO.class);
+        return subasta;
     }
 
     @Override

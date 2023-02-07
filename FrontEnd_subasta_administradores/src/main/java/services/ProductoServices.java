@@ -49,6 +49,17 @@ public class ProductoServices {
 
         return listaProductos;
     }
+    public Producto consultarProducto(Integer codigo){
+        Producto objProducto = null;
+
+        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/"+ codigo);
+
+        Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
+
+        objProducto = objPeticion.get(Producto.class);
+
+        return objProducto;
+    }
 //    public boolean ofrecerOferta(Float oferta, Integer codigoP){
 //        Boolean bandera = false;
 //        Subasta objSubasta = null;
