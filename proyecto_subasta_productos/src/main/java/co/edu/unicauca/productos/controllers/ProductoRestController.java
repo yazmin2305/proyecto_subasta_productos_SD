@@ -2,8 +2,9 @@ package co.edu.unicauca.productos.controllers;
 
 import co.edu.unicauca.productos.services.DTO.ProductoDTO;
 import co.edu.unicauca.productos.services.IProductoService;
-import co.edu.unicauca.productos.services.ISubastaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -22,10 +23,11 @@ public class ProductoRestController {
     }
 
     @GetMapping("/productos/{codigo}")
-    public ProductoDTO show(@PathVariable Integer codigo) {
-        ProductoDTO objProducto = null;
-        objProducto = productoService.findById(codigo);
-        return objProducto;
+    public ResponseEntity<ProductoDTO> show(@PathVariable Integer codigo) {
+        // ProductoDTO objProducto = null;
+        ProductoDTO objProducto = productoService.findById(codigo);
+
+        return new ResponseEntity<ProductoDTO>(objProducto, null, HttpStatus.NOT_FOUND);
     }
     @PostMapping("/productos")
     public ProductoDTO create(@RequestBody ProductoDTO producto) {
