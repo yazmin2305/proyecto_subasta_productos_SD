@@ -66,4 +66,11 @@ public class ProductoServiceImpl implements IProductoService{
         List<ProductoDTO> productosSubastaDTO = this.modelMapper.map(productosSubasta, new TypeToken<List<ProductoDTO>>() {}.getType());
         return productosSubastaDTO;
     }
+
+    @Override
+    public ProductoDTO consultarProductoSubastado(String estado) {
+        ProductoEntity objProductoEntity= this.servicioAccesoBaseDatos.consultarProductoSubastado(estado);
+        ProductoDTO productoDTO=this.modelMapper.map(objProductoEntity, ProductoDTO.class);
+        return productoDTO;
+    }
 }

@@ -58,4 +58,10 @@ public class ProductoRestController {
         return productoService.productosSubasta(estado);
     }
 
+    @GetMapping("/productos/productoSubastado/{estado}")
+    public ProductoDTO consultarProductoSubastado(@PathVariable String estado) {
+        ProductoDTO objProducto = null;
+        objProducto = productoService.consultarProductoSubastado(estado);
+        return objProducto;
+    }
 }

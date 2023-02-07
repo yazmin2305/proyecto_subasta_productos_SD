@@ -61,8 +61,8 @@ public class SubastaRestController {
         return subastaService.consultarValorActualSubasta(oferta, codigoP);
     }
 
-    @GetMapping("/subastas/subastaProducto/{codigo}")
-    public Float consultarSubastaProducto(@PathVariable Integer codigo){
-        return subastaService.consultarSubastaProducto(codigo);
+    @GetMapping("/subastas/valorActualSubasta/{codigo}")
+    public Float valorActualSubasta(@PathVariable Integer codigo) {
+        return subastaService.valorActualSubasta(codigo);
     }
 }
