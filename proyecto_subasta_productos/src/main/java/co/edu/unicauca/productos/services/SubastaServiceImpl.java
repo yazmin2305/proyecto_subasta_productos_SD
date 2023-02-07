@@ -99,13 +99,8 @@ public class SubastaServiceImpl implements ISubastaService {
         return respuesta;
     }
 
-    public Float consultarSubastaProducto(Integer codigo){
-        float valorSubasta = this.servicioAccesoBaseDatos.consultarSubasta(codigo);
-
-
-        //List<SubastaEntity> subastaEntity= this.servicioAccesoBaseDatos.findAll();
-        //List<SubastaDTO> subastaDTO=this.modelMapper.map(subastaEntity, new TypeToken<List<SubastaDTO>>() {}.getType());
-        //return subastaDTO;
-        return valorSubasta;
+    @Override
+    public Float valorActualSubasta(Integer codigoP) {
+        return servicioAccesoBaseDatos.valorActualSubasta(codigoP);
     }
 }

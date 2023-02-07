@@ -1,6 +1,8 @@
 package co.edu.unicauca.productos.controllers;
 
+import co.edu.unicauca.productos.services.DTO.ProductoDTO;
 import co.edu.unicauca.productos.services.DTO.SubastaDTO;
+import co.edu.unicauca.productos.services.IProductoService;
 import co.edu.unicauca.productos.services.ISubastaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -51,9 +53,16 @@ public class SubastaRestController {
         //return bandera;
     }
     @PutMapping("/subastas/disabled/{codigo}")
-    public SubastaDTO disabledByCodigo(@RequestBody SubastaDTO subasta, @PathVariable Integer codigo){ return this.subastaService.disabledByCodigo(subasta, codigo);}
-    @PutMapping("/subastas/ofrecerOferta/{oferta}/{codigop}")
-    public boolean ofrecerOferta(@PathVariable Float oferta, @PathVariable Integer codigop) {
-        return subastaService.consultarValorActualSubasta(oferta, codigop);
+    public SubastaDTO disabledByCodigo(@RequestBody SubastaDTO subasta, @PathVariable Integer codigo){
+        return this.subastaService.disabledByCodigo(subasta, codigo);
+    }
+    @PutMapping("/subastas/ofrecerOferta/{oferta}/{codigo}")
+    public boolean ofrecerOferta(@PathVariable Float oferta, @PathVariable Integer codigoP) {
+        return subastaService.consultarValorActualSubasta(oferta, codigoP);
+    }
+
+    @GetMapping("/subastas/valorActualSubasta/{codigo}")
+    public Float valorActualSubasta(@PathVariable Integer codigo) {
+        return subastaService.valorActualSubasta(codigo);
     }
 }

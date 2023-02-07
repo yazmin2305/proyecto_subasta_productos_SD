@@ -1,5 +1,6 @@
 package co.edu.unicauca.productos.services;
 
+import co.edu.unicauca.productos.models.ProductoEntity;
 import co.edu.unicauca.productos.services.DTO.SubastaDTO;
 
 import java.util.List;
@@ -11,5 +12,6 @@ public interface ISubastaService {
     public SubastaDTO update(Integer codigo, SubastaDTO subasta);
     public void delete(Integer codigo);
     public SubastaDTO disabledByCodigo(SubastaDTO subasta, Integer codigo);
-    public boolean consultarValorActualSubasta(Float oferta, Integer codigop);
+    public boolean consultarValorActualSubasta(Float oferta, Integer codigoP);
+    public Float valorActualSubasta(Integer codigoP);
 }
