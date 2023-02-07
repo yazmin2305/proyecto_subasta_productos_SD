@@ -1,16 +1,17 @@
 package view;
 
+import java.util.ArrayList;
+import models.Producto;
+
 /**
  *
  * @author Lenovo
  */
 public class FormCliente extends javax.swing.JFrame {
-
-    /**
-     * Creates new form FormCliente
-     */
+    
     public FormCliente() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -22,25 +23,81 @@ public class FormCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        label1 = new java.awt.Label();
+
+        jButton1.setText("jButton1");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton2.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton2.setText("Registrarse");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrarse(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jButton3.setText("Iniciar Sesión");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInicioSesion(evt);
+            }
+        });
+
+        label1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        label1.setText("¡Bienvenido al sistema de subasta de productos!");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 463, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 315, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37))
         );
+
+        label1.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btnRegistrarse(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarse
+        JDialogRegistroClientes objDialogRegistro = new JDialogRegistroClientes(this, false);
+        objDialogRegistro.setLocationRelativeTo(null);
+        //this.setVisible(false);
+        objDialogRegistro.setVisible(true);
+    }//GEN-LAST:event_btnRegistrarse
+
+    private void btnInicioSesion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesion
+        JDialogInicioSesionCli objDialogInicioSesion = new JDialogInicioSesionCli(this, false);
+        objDialogInicioSesion.setLocationRelativeTo(null);
+        //this.setVisible(false);
+        objDialogInicioSesion.setVisible(true);
+    }//GEN-LAST:event_btnInicioSesion
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -74,5 +131,9 @@ public class FormCliente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }

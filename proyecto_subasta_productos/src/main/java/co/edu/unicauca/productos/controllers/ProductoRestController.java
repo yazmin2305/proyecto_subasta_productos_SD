@@ -53,7 +53,7 @@ public class ProductoRestController {
         }
         //return bandera;
     }
-    @GetMapping("admin/productosSubasta/{estado}")
+    @GetMapping("productos/productosSubasta/{estado}")
     public List<ProductoDTO> productosSubasta(@PathVariable String estado) {
         return productoService.productosSubasta(estado);
 
