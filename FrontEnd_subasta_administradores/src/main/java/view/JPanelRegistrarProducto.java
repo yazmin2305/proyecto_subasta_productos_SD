@@ -118,18 +118,19 @@ public class JPanelRegistrarProducto extends javax.swing.JPanel {
     private void btnRegistrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarProductoActionPerformed
         registrarProducto();
     }//GEN-LAST:event_btnRegistrarProductoActionPerformed
-    private void registrarProducto(){
-        ProductoServices objServices = new ProductoServices();
-        Producto objProducto = new Producto();
-        objProducto.setCodigo(Integer.parseInt(this.txtCodigo.getText()));
-        objProducto.setNombre(this.txtNombre.getText());
-        objProducto.setValor_inicial(Float.parseFloat(this.txtValorInicial.getText()));
-        Producto producto = objServices.registrarProducto(objProducto);
-        if(producto != null){
-            JOptionPane.showMessageDialog(this, "Producto registrado con éxito", "Registro Producto", JOptionPane.INFORMATION_MESSAGE);
-        }else{
-            //revisarrrr
-            JOptionPane.showMessageDialog(this, "Error al registrar producto", "Registro Producto", JOptionPane.WARNING_MESSAGE);
+    private void registrarProducto() {
+        try {
+            ProductoServices objServices = new ProductoServices();
+            Producto objProducto = new Producto();
+            objProducto.setCodigo(Integer.parseInt(this.txtCodigo.getText()));
+            objProducto.setNombre(this.txtNombre.getText());
+            objProducto.setValor_inicial(Float.parseFloat(this.txtValorInicial.getText()));
+            Producto producto = objServices.registrarProducto(objProducto);
+            if (producto != null) {
+                JOptionPane.showMessageDialog(this, "Producto registrado con éxito", "Registro Producto", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al registrar producto", "Registro Producto", JOptionPane.ERROR_MESSAGE);
         }
     }
 

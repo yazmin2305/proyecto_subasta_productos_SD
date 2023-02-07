@@ -146,15 +146,43 @@ public class JPanelConsultarSubasta extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultarProductoSubastaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarProductoSubastaActionPerformed
-        consultarProductoSubastado();
+        ejecutarHilo();
     }//GEN-LAST:event_btnConsultarProductoSubastaActionPerformed
 
-    private void consultarProductoSubastado() {
-        ProductoServices objProductoServices = new ProductoServices();
-        Producto objProducto = objProductoServices.consultarProductoSubastado("Subastando");
-        SubastaServices objSubastaServices = new SubastaServices();
-        Float valor_subasta = objSubastaServices.valorActualSubasta(objProducto.getCodigo());
+    public void ejecutarHilo() {
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                // Esto se ejecuta en segundo plano una única vez
+                while (true) {
+                    // Pero usamos un truco y hacemos un ciclo infinito
+                    try {
+                        // En él, hacemos que el hilo duerma
+                        Thread.sleep(4000);
+                        // Y después realizamos las operaciones
+                        System.out.println("Me imprimo cada segundo");
+                        consultarProductoEnSubasta();
+                        // Así, se da la impresión de que se ejecuta cada cierto tiempo
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
+        // Creamos un hilo y le pasamos el runnable
+        Thread hilo = new Thread(runnable);
+        hilo.start();
+
+        // Y aquí podemos hacer cualquier cosa, en el hilo principal del programa
+        System.out.println("Yo imprimo en el hilo principal");
+    }
+
+    public void consultarProductoEnSubasta() {
         try {
+            ProductoServices objProductoServices = new ProductoServices();
+            Producto objProducto = objProductoServices.consultarProductoSubastado("Subastando");
+            SubastaServices objSubastaServices = new SubastaServices();
+            Float valor_subasta = objSubastaServices.valorActualSubasta(objProducto.getCodigo());
             if (objProducto != null) {
                 System.out.println("entraaa");
                 txtCodigo.setText(String.valueOf(objProducto.getCodigo()));
@@ -165,6 +193,11 @@ public class JPanelConsultarSubasta extends javax.swing.JPanel {
             }
             JOptionPane.showMessageDialog(this, "Producto encontrado", "Buscar producto", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
+            txtNombre.setText("");
+            txtValorInicial.setText("");
+            txtCodigo.setText("");
+            txtEstado.setText("");
+            txtValorSubasta.setText("");
             JOptionPane.showMessageDialog(this, "Producto no encontrado", "Buscar producto", JOptionPane.WARNING_MESSAGE);
         }
     }

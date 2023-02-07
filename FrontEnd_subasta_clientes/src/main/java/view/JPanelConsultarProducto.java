@@ -136,24 +136,23 @@ public class JPanelConsultarProducto extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBuscarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarProductoActionPerformed
-        int codigo = Integer.parseInt(txtCodigoProduct.getText());
-        ProductoServices objProductoServices = new ProductoServices();
-        Producto objProducto = objProductoServices.consultarProducto(codigo);
-        
         try {
+            int codigo = Integer.parseInt(txtCodigoProduct.getText());
+            ProductoServices objProductoServices = new ProductoServices();
+            Producto objProducto = objProductoServices.consultarProducto(codigo);
             if (objProducto != null) {
-                System.out.println("entraaa");
                 txtNombre.setText(objProducto.getNombre());
                 txtValorInicial.setText(String.valueOf(objProducto.getValor_inicial()));
                 txtxEstado.setText(objProducto.getEstado());
             }
             JOptionPane.showMessageDialog(this, "Producto encontrado", "Buscar producto", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
+            txtNombre.setText("");
+            txtValorInicial.setText("");
+            txtxEstado.setText("");
             JOptionPane.showMessageDialog(this, "Producto no encontrado", "Buscar producto", JOptionPane.WARNING_MESSAGE);
         }
-//        txtNombre.setText("");
-//        txtValorInicial.setText("");
-//        txtxEstado.setText("");
+
     }//GEN-LAST:event_btnBuscarProductoActionPerformed
 
 

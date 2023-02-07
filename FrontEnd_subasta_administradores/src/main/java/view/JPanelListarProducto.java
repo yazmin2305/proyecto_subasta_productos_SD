@@ -92,7 +92,6 @@ public class JPanelListarProducto extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConsultarProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarProductosActionPerformed
-        // TODO add your handling code here:
         ProductoServices objServices = new ProductoServices();
         List<Producto> lstProductos = objServices.listarProductos();
         cargar_tabla(lstProductos);

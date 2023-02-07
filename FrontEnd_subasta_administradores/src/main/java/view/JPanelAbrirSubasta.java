@@ -1,16 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
+import javax.swing.JOptionPane;
+import models.Producto;
 import models.Subasta;
+import services.ProductoServices;
 import services.SubastaServices;
 
 /**
  *
- * @author eri-k
+ * @author YazminG- ErikaC
  */
 public class JPanelAbrirSubasta extends javax.swing.JPanel {
 
@@ -109,12 +107,20 @@ public class JPanelAbrirSubasta extends javax.swing.JPanel {
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         abrirSubasta();
     }//GEN-LAST:event_btnRegistrarActionPerformed
-    private void abrirSubasta(){
-        SubastaServices objServices = new SubastaServices();
-        Subasta objSubasta = new Subasta();
-        objSubasta.setCodigo(Integer.parseInt(this.txtCodigoSubasta.getText()));
-        objServices.abrirSubasta(objSubasta, Integer.parseInt(this.txtCodigoProducto.getText()));
-        
+    private void abrirSubasta() {
+        try{
+            ProductoServices objProducto = new ProductoServices();
+            SubastaServices objServices = new SubastaServices();
+            Subasta objSubasta = new Subasta();
+            Producto objP = objProducto.consultarProducto(Integer.parseInt(this.txtCodigoProducto.getText()));
+            if (objP != null) {
+                objSubasta.setCodigo(Integer.parseInt(this.txtCodigoSubasta.getText()));
+                objServices.abrirSubasta(objSubasta, Integer.parseInt(this.txtCodigoProducto.getText()));
+                JOptionPane.showMessageDialog(this, "La subasta ha sido abierta con exito.", "Abrir Subasta", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error al abrir subasta.", "Abrir Subasta", JOptionPane.WARNING_MESSAGE);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

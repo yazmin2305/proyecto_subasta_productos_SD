@@ -1,11 +1,8 @@
 package view;
 
-import java.util.ArrayList;
-import models.Producto;
-
 /**
  *
- * @author Lenovo
+ * @author YazminG - ErikaC
  */
 public class FormCliente extends javax.swing.JFrame {
     
@@ -86,14 +83,12 @@ public class FormCliente extends javax.swing.JFrame {
     private void btnRegistrarse(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarse
         JDialogRegistroClientes objDialogRegistro = new JDialogRegistroClientes(this, false);
         objDialogRegistro.setLocationRelativeTo(null);
-        //this.setVisible(false);
         objDialogRegistro.setVisible(true);
     }//GEN-LAST:event_btnRegistrarse
 
     private void btnInicioSesion(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesion
         JDialogInicioSesionCli objDialogInicioSesion = new JDialogInicioSesionCli(this, false);
         objDialogInicioSesion.setLocationRelativeTo(null);
-        //this.setVisible(false);
         objDialogInicioSesion.setVisible(true);
     }//GEN-LAST:event_btnInicioSesion
 
