@@ -4,7 +4,6 @@ import co.edu.unicauca.productos.models.ProductoEntity;
 import co.edu.unicauca.productos.models.SubastaEntity;
 import co.edu.unicauca.productos.repositories.IProductoRepository;
 import co.edu.unicauca.productos.repositories.ISubastaRepository;
-import co.edu.unicauca.productos.repositories.SubastaRepository;
 import co.edu.unicauca.productos.services.DTO.SubastaDTO;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
@@ -83,13 +82,16 @@ public class SubastaServiceImpl implements ISubastaService {
     }
 
     @Override
-    public boolean consultarValorActualSubasta(Float oferta, Integer codigoP) {
+    public boolean consultarValorActualSubasta(Float oferta, Integer codigop) {
         boolean respuesta = false;
-        SubastaEntity objS = this.servicioAccesoBaseDatos.consultarValorActualSubasta(codigoP);
-        String estadoProducto = this.servicioAccesoBaseDatosProducto.consultarEstadoProducto(codigoP);
+        SubastaDTO objSubastaDTOModificado = null;
+
+        SubastaEntity objS = this.servicioAccesoBaseDatos.consultarValorActualSubasta(codigop);
+        String estadoProducto = this.servicioAccesoBaseDatosProducto.consultarEstadoProducto(codigop);
         if(oferta > objS.getValor_actual() && estadoProducto.equals("Subastando")){
             objS.setValor_actual(oferta);
             SubastaEntity objSmodificado = servicioAccesoBaseDatos.save(objS);
+            //objSubastaDTOModificado = this.modelMapper.map(objSmodificado, SubastaDTO.class);
             System.out.println("ENTRAAAAAAAAAAA YEIIIIII");
             respuesta = true;
         }
