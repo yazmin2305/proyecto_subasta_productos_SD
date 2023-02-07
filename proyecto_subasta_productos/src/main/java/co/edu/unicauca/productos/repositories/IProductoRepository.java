@@ -10,6 +10,7 @@ public interface IProductoRepository extends JpaRepository<ProductoEntity, Integ
     @Query(value = "select * from producto where estado =?1",nativeQuery = true)
     public abstract List<ProductoEntity> productosSubasta(String estado);
 
+
     @Query(value = "select estado from producto where codigo =?1", nativeQuery = true)
     public abstract String consultarEstadoProducto(Integer codigoP);
 
