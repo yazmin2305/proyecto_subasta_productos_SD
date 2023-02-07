@@ -16,5 +16,4 @@ public interface IProductoRepository extends JpaRepository<ProductoEntity, Integ
     @Query(value = "select * from producto where estado =?1", nativeQuery = true)
     public abstract ProductoEntity consultarProductoSubastado(String estado);
 
-
 }
