@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 import models.Producto;
 import services.ProductoServices;
 import services.SubastaServices;
+import java.util.Optional;
 
 /**
  *
@@ -35,8 +36,6 @@ public class JPanelConsultarProducto extends javax.swing.JPanel {
         txtNombre = new javax.swing.JTextField();
         txtValorInicial = new javax.swing.JTextField();
         txtxEstado = new javax.swing.JTextField();
-        txtValorSubasta = new javax.swing.JTextField();
-        label6 = new java.awt.Label();
         txtCodigoProduct = new javax.swing.JTextField();
 
         setLayout(new java.awt.BorderLayout());
@@ -45,7 +44,7 @@ public class JPanelConsultarProducto extends javax.swing.JPanel {
         label2.setText("Consultar producto ");
 
         labelCodProduct.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        labelCodProduct.setText("Ingrese el coódigo del prodcuto:");
+        labelCodProduct.setText("Ingrese el código del prodcuto:");
 
         btnBuscarProducto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnBuscarProducto.setText("Buscar");
@@ -64,9 +63,6 @@ public class JPanelConsultarProducto extends javax.swing.JPanel {
         label5.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         label5.setText("Estado:");
 
-        label6.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        label6.setText("Valor de la subasta:");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -80,12 +76,10 @@ public class JPanelConsultarProducto extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(64, 64, 64)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtValorSubasta, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                    .addComponent(txtValorInicial)
+                    .addComponent(txtValorInicial, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
                     .addComponent(txtNombre)
                     .addComponent(txtxEstado))
                 .addGap(152, 152, 152))
@@ -93,7 +87,7 @@ public class JPanelConsultarProducto extends javax.swing.JPanel {
                 .addGap(53, 53, 53)
                 .addComponent(labelCodProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCodigoProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                .addComponent(txtCodigoProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBuscarProducto)
                 .addGap(76, 76, 76))
@@ -118,15 +112,11 @@ public class JPanelConsultarProducto extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(label5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtxEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtValorSubasta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtxEstado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnBuscarProducto)
                         .addComponent(txtCodigoProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -137,7 +127,9 @@ public class JPanelConsultarProducto extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -173,12 +165,10 @@ public class JPanelConsultarProducto extends javax.swing.JPanel {
     private java.awt.Label label3;
     private java.awt.Label label4;
     private java.awt.Label label5;
-    private java.awt.Label label6;
     private java.awt.Label labelCodProduct;
     private javax.swing.JTextField txtCodigoProduct;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtValorInicial;
-    private javax.swing.JTextField txtValorSubasta;
     private javax.swing.JTextField txtxEstado;
     // End of variables declaration//GEN-END:variables
 }

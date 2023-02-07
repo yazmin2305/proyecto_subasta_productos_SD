@@ -14,7 +14,7 @@ import org.glassfish.jersey.jackson.JacksonFeature;
  *
  * @author YazminG, ErikaC
  */
-public class SubastaServices {
+public class SubastaServices extends Thread {
     private String endPoint;
     private Client objClientePeticiones;
 
