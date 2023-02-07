@@ -1,4 +1,4 @@
-package view;
+package view.SubastaProductos;
 
 import java.util.List;
 import models.Producto;
@@ -28,13 +28,13 @@ public class JPanelProductsSubastados extends javax.swing.JPanel {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
         btnProductosSubast = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         btnProductosNoSubast = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -61,10 +61,6 @@ public class JPanelProductsSubastados extends javax.swing.JPanel {
             }
         ));
         jScrollPane3.setViewportView(jTable3);
-
-        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        label1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
-        label1.setText("Consultar productos ");
 
         btnProductosSubast.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnProductosSubast.setText("Consultar productos subastados");
@@ -110,6 +106,9 @@ public class JPanelProductsSubastados extends javax.swing.JPanel {
         ));
         jScrollPane4.setViewportView(jTable4);
 
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setText("Consultar productos ");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -125,15 +124,15 @@ public class JPanelProductsSubastados extends javax.swing.JPanel {
                             .addComponent(btnProductosSubast))
                         .addGap(51, 51, 51))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(189, 189, 189))))
+                        .addComponent(jLabel1)
+                        .addGap(190, 190, 190))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
+                .addGap(37, 37, 37)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(btnProductosSubast, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,6 +197,7 @@ public class JPanelProductsSubastados extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnProductosNoSubast;
     private javax.swing.JButton btnProductosSubast;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -207,6 +207,5 @@ public class JPanelProductsSubastados extends javax.swing.JPanel {
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }
