@@ -2,7 +2,6 @@ package co.edu.unicauca.productos.services;
 
 import co.edu.unicauca.productos.models.ProductoEntity;
 import co.edu.unicauca.productos.repositories.IProductoRepository;
-import co.edu.unicauca.productos.repositories.ProductoRepository;
 import co.edu.unicauca.productos.services.DTO.ProductoDTO;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
