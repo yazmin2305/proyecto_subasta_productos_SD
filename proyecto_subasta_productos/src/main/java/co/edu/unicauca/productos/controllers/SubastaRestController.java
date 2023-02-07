@@ -54,4 +54,8 @@ public class SubastaRestController {
     }
     @PutMapping("/subastas/disabled/{codigo}")
     public SubastaDTO disabledByCodigo(@RequestBody SubastaDTO subasta, @PathVariable Integer codigo){ return this.subastaService.disabledByCodigo(subasta, codigo);}
+    @PutMapping("/subastas/ofrecerOferta/{oferta}/{codigo}")
+    public boolean ofrecerOferta(@PathVariable Float oferta, @PathVariable Integer codigoP) {
+        return subastaService.consultarValorActualSubasta(oferta, codigoP);
+    }
 }
