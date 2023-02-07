@@ -1,5 +1,8 @@
 package view;
 
+import view.SubastaClientes.JDialogRegistroClientes;
+import view.SubastaClientes.JDialogInicioSesionCli;
+
 /**
  *
  * @author YazminG - ErikaC

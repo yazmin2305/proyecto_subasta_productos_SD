@@ -1,9 +1,13 @@
-package view;
+package view.SubastaClientes;
 
 import java.util.ArrayList;
 import java.util.List;
 import models.Producto;
 import services.ProductoServices;
+import view.SubastaProductos.JPanelConsultarProducto;
+import view.SubastaProductos.JPanelConsultarSubasta;
+import view.SubastaProductos.JPanelOfrecerOferta;
+import view.SubastaProductos.JPanelProductsSubastados;
 
 /**
  *
@@ -43,7 +47,7 @@ public class JDialogMenuCliente extends javax.swing.JDialog {
         jButton3 = new javax.swing.JButton();
         jPanelCentral = new javax.swing.JPanel();
         jPanelSuperior = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -108,8 +112,8 @@ public class JDialogMenuCliente extends javax.swing.JDialog {
 
         jPanelCentral.setLayout(new java.awt.BorderLayout());
 
-        label1.setFont(new java.awt.Font("Century Gothic", 1, 19)); // NOI18N
-        label1.setText("MENÚ CLIENTES");
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setText("MENÚ CLIENTES");
 
         javax.swing.GroupLayout jPanelSuperiorLayout = new javax.swing.GroupLayout(jPanelSuperior);
         jPanelSuperior.setLayout(jPanelSuperiorLayout);
@@ -117,15 +121,15 @@ public class JDialogMenuCliente extends javax.swing.JDialog {
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSuperiorLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(264, 264, 264))
+                .addComponent(jLabel1)
+                .addGap(338, 338, 338))
         );
         jPanelSuperiorLayout.setVerticalGroup(
             jPanelSuperiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelSuperiorLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(28, 28, 28)
+                .addComponent(jLabel1)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -229,9 +233,9 @@ public class JDialogMenuCliente extends javax.swing.JDialog {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelCentral;
     private javax.swing.JPanel jPanelIzq;
     private javax.swing.JPanel jPanelSuperior;
-    private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }
