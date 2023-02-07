@@ -115,6 +115,8 @@ public class JDialogInicioSesionCli extends javax.swing.JDialog {
         }else{
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Inicio Sesión", JOptionPane.WARNING_MESSAGE);
         }
+        txtLoginInicio.setText("");
+        pswInicioCliente.setText("");
     }//GEN-LAST:event_btnInicioSesionActionPerformed
 
 //    public static void main(String args[]) {

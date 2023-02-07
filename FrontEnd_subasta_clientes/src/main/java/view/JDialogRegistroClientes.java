@@ -1,4 +1,3 @@
-
 package view;
 
 import javax.swing.JOptionPane;
@@ -170,19 +169,24 @@ public class JDialogRegistroClientes extends javax.swing.JDialog {
         //sdv TODO add your handling code here:
         crearCliente();
     }//GEN-LAST:event_btnRegistrarCliente
-    
-    private void crearCliente(){
-        Cliente objCliente = new Cliente();
-        ClienteServices objCliServices = new ClienteServices();
-        objCliente.setId(Integer.parseInt(txtIdentificacion.getText()));
-        objCliente.setNombres(txtNombres.getText());
-        objCliente.setApellidos(txtApellidos.getText());
-        objCliente.setCorreo(txtCorreo.getText());
-        objCliente.setTelefono(txtTelefono.getText());
-        objCliente.setLogin(txtLogin.getText());
-        objCliente.setContrasenia(txtContrasenia.getText());
-        objCliServices.registrarCliente(objCliente);
-        JOptionPane.showMessageDialog(this, "Cliente registrado con exito!!", "Registro Cliente", JOptionPane.INFORMATION_MESSAGE);
+
+    private void crearCliente() {
+        try {
+            Cliente objCliente = new Cliente();
+            ClienteServices objCliServices = new ClienteServices();
+            objCliente.setId(Integer.parseInt(txtIdentificacion.getText()));
+            objCliente.setNombres(txtNombres.getText());
+            objCliente.setApellidos(txtApellidos.getText());
+            objCliente.setCorreo(txtCorreo.getText());
+            objCliente.setTelefono(txtTelefono.getText());
+            objCliente.setLogin(txtLogin.getText());
+            objCliente.setContrasenia(txtContrasenia.getText());
+            objCliServices.registrarCliente(objCliente);
+            JOptionPane.showMessageDialog(this, "Cliente registrado con exito!!", "Registro Cliente", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Información erronea, Cliente no registrado", "Registro cliente", JOptionPane.INFORMATION_MESSAGE);
+        }
         txtIdentificacion.setText("");
         txtNombres.setText("");
         txtApellidos.setText("");
@@ -190,6 +194,7 @@ public class JDialogRegistroClientes extends javax.swing.JDialog {
         txtTelefono.setText("");
         txtLogin.setText("");
         txtContrasenia.setText("");
+
     }
 
 //    public static void main(String args[]) {
