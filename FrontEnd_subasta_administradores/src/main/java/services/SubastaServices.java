@@ -21,6 +21,17 @@ public class SubastaServices {
         this.endPoint = "http://localhost:5001/api/subastas";
         this.objClientePeticiones = ClientBuilder.newClient().register(new JacksonFeature());
     }
+    public Subasta consultarSubasta(Integer codigo){
+        Subasta objSubasta = null;
+
+        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/" + codigo);
+
+        Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
+
+        objSubasta = objPeticion.get(Subasta.class);
+
+        return objSubasta;
+    }
     
     public Subasta abrirSubasta(Subasta objS, Integer codigo){
         Subasta objSubasta = null;

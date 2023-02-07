@@ -41,6 +41,7 @@ public class SubastaServiceImpl implements ISubastaService {
     public SubastaDTO save(SubastaDTO subasta, Integer codigoP) {
         SubastaEntity subastaEntity=this.modelMapper.map(subasta, SubastaEntity.class);
         ProductoEntity objP = servicioAccesoBaseDatosProducto.findById(codigoP).orElse(null);
+        subastaEntity.setEstado("Abierta");
         subastaEntity.setObjProducto(objP);
         subastaEntity.getObjProducto().setEstado("Subastando");
         SubastaEntity objSubastaEntity= this.servicioAccesoBaseDatos.save(subastaEntity);

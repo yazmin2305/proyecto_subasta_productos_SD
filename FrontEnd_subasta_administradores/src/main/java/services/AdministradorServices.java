@@ -43,7 +43,7 @@ public class AdministradorServices {
 
         Boolean bandera = false;
 
-        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/inicioSesionAdmins" + "/" + login + "/" + contrasenia);
+        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/inicioSesionAdmin" + "/" + login + "/" + contrasenia);
 
         Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
 
