@@ -20,7 +20,7 @@ public class SubastaRestController {
         return subastaService.findAll();
     }
 
-    @GetMapping("/subastas/{id}")
+    @GetMapping("/subastas/{codigo}")
     public SubastaDTO show(@PathVariable Integer codigo) {
         SubastaDTO objSubasta = null;
         objSubasta = subastaService.findById(codigo);
