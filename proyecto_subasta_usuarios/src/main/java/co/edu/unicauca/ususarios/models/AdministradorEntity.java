@@ -13,5 +13,5 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Administrador")
 public class AdministradorEntity extends UsuarioEntity{
-
+//Prueba
 }
