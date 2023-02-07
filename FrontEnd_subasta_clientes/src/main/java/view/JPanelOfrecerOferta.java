@@ -1,11 +1,18 @@
 package view;
 
+import javax.swing.JOptionPane;
+import models.Producto;
+import models.Subasta;
+import services.ProductoServices;
+import services.SubastaServices;
+
 /**
  *
  * @author YazminG, ErikaC
  */
 public class JPanelOfrecerOferta extends javax.swing.JPanel {
-
+    private Float valorActual;
+    private Subasta objS;
     /**
      * Creates new form JPanelOfrecerOferta
      */
@@ -22,19 +29,150 @@ public class JPanelOfrecerOferta extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnConsultar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnOfrecerOferta = new javax.swing.JButton();
+        txtNombreP = new javax.swing.JTextField();
+        txtValorActual = new javax.swing.JTextField();
+        txtOferta = new javax.swing.JTextField();
+
+        setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setText("Ofrecer oferta");
+
+        jLabel2.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jLabel2.setText("Nombre del producto: ");
+
+        btnConsultar.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        btnConsultar.setText("Consultar");
+        btnConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConsultarActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jLabel3.setText("Valor actual:");
+
+        jLabel4.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        jLabel4.setText("Oferta: ");
+
+        btnOfrecerOferta.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        btnOfrecerOferta.setText("Ofrecer oferta");
+        btnOfrecerOferta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOfrecerOfertaActionPerformed(evt);
+            }
+        });
+
+        txtNombreP.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+
+        txtValorActual.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+
+        txtOferta.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(233, 233, 233)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNombreP, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                            .addComponent(txtValorActual)
+                            .addComponent(txtOferta)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(86, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnOfrecerOferta)
+                .addGap(194, 194, 194))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel1)
+                .addGap(28, 28, 28)
+                .addComponent(btnConsultar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNombreP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtValorActual, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtOferta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
+                .addComponent(btnOfrecerOferta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
+
+        add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
+        // TODO add your handling code here:
+        consultarProducto();
+    }//GEN-LAST:event_btnConsultarActionPerformed
+
+    private void btnOfrecerOfertaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOfrecerOfertaActionPerformed
+        // TODO add your handling code here:
+        ofrecerOferta();
+    }//GEN-LAST:event_btnOfrecerOfertaActionPerformed
+    private void consultarProducto(){
+        ProductoServices objPServices = new ProductoServices();
+        SubastaServices objSservices = new SubastaServices();
+        Producto objP = objPServices.consultarProductoSubastado("Subastando");
+        objS = objSservices.consultarSubastaActual(objP.getCodigo());
+        this.txtNombreP.setText(objP.getNombre());
+        valorActual = objS.getValor_actual();
+        this.txtValorActual.setText(String.valueOf(objS.getValor_actual()));        
+    }
+    private void ofrecerOferta(){
+        SubastaServices objSservices = new SubastaServices();
+        if(Float.parseFloat(this.txtOferta.getText())>valorActual){
+            valorActual = Float.parseFloat(this.txtOferta.getText());
+            objS.setValor_actual(Float.parseFloat(this.txtOferta.getText()));
+            this.txtValorActual.setText(String.valueOf(valorActual));
+            Subasta subasta = objSservices.actualizarSubasta(objS, objS.getCodigo());
+        }else{
+            JOptionPane.showMessageDialog(this, "La oferta debe ser mayor a la actual", "Ofrecer oferta", JOptionPane.WARNING_MESSAGE);
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnConsultar;
+    private javax.swing.JButton btnOfrecerOferta;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField txtNombreP;
+    private javax.swing.JTextField txtOferta;
+    private javax.swing.JTextField txtValorActual;
     // End of variables declaration//GEN-END:variables
 }

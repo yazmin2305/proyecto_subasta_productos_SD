@@ -32,6 +32,17 @@ public class SubastaServices {
 
         return objSubasta;
     }
+        public Subasta consultarSubastaActual(Integer codigo){
+        Subasta objSubasta = null;
+
+        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/consultarSubasta/" + codigo);
+
+        Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
+
+        objSubasta = objPeticion.get(Subasta.class);
+
+        return objSubasta;
+    }
     
     public Subasta abrirSubasta(Subasta objS, Integer codigo){
         Subasta objSubasta = null;

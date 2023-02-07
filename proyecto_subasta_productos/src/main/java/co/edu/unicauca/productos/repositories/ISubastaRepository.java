@@ -13,6 +13,6 @@ public interface ISubastaRepository extends JpaRepository<SubastaEntity, Integer
     public abstract Float valorActualSubasta(Integer codigoP);
 
     @Query(value = "select * from subasta where codigop =?1",nativeQuery = true)
-    public abstract SubastaEntity consultarValorActualSubasta(Integer codigoP);
+    public abstract SubastaEntity consultarSubastaActual(Integer codigoP);
 
 }
