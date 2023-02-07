@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SubastaServiceImpl implements ISubastaService {
@@ -93,5 +94,15 @@ public class SubastaServiceImpl implements ISubastaService {
             respuesta = true;
         }
         return respuesta;
+    }
+
+    public Float consultarSubastaProducto(Integer codigo){
+        float valorSubasta = this.servicioAccesoBaseDatos.consultarSubasta(codigo);
+
+
+        //List<SubastaEntity> subastaEntity= this.servicioAccesoBaseDatos.findAll();
+        //List<SubastaDTO> subastaDTO=this.modelMapper.map(subastaEntity, new TypeToken<List<SubastaDTO>>() {}.getType());
+        //return subastaDTO;
+        return valorSubasta;
     }
 }

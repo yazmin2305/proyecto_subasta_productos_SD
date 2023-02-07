@@ -2,12 +2,12 @@ package co.edu.unicauca.productos.controllers;
 
 import co.edu.unicauca.productos.services.DTO.ProductoDTO;
 import co.edu.unicauca.productos.services.IProductoService;
+import co.edu.unicauca.productos.services.ISubastaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 
 @RestController
@@ -56,6 +56,6 @@ public class ProductoRestController {
     @GetMapping("productos/productosSubasta/{estado}")
     public List<ProductoDTO> productosSubasta(@PathVariable String estado) {
         return productoService.productosSubasta(estado);
-
     }
+
 }
