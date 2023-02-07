@@ -1,4 +1,10 @@
-package view;
+package view.SubastaAdmin;
+
+import view.SubastaProducto.JPanelListarProducto;
+import view.SubastaProducto.JPanelRegistrarProducto;
+import view.SubastaProducto.JPanelCerrarSubasta;
+import view.SubastaProducto.JPanelAbrirSubasta;
+import view.*;
 
 /**
  *
@@ -38,11 +44,11 @@ public class JDialogMenuAdmin extends javax.swing.JDialog {
         btnAbrirSubasta = new javax.swing.JButton();
         jPanelCentral = new javax.swing.JPanel();
         jPanelSup = new javax.swing.JPanel();
-        label1 = new java.awt.Label();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        btnRegistrarProducto.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        btnRegistrarProducto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnRegistrarProducto.setLabel("Registrar producto");
         btnRegistrarProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,7 +56,7 @@ public class JDialogMenuAdmin extends javax.swing.JDialog {
             }
         });
 
-        btnListarProductos.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        btnListarProductos.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnListarProductos.setText("Listar Productos");
         btnListarProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -58,7 +64,7 @@ public class JDialogMenuAdmin extends javax.swing.JDialog {
             }
         });
 
-        btnCerrarSubasta.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        btnCerrarSubasta.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnCerrarSubasta.setText("Cerrar Subasta");
         btnCerrarSubasta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +72,7 @@ public class JDialogMenuAdmin extends javax.swing.JDialog {
             }
         });
 
-        btnAbrirSubasta.setFont(new java.awt.Font("Century Gothic", 0, 13)); // NOI18N
+        btnAbrirSubasta.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnAbrirSubasta.setText("Abrir Subasta");
         btnAbrirSubasta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,50 +89,43 @@ public class JDialogMenuAdmin extends javax.swing.JDialog {
                 .addGroup(jPanelIzqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRegistrarProducto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnListarProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCerrarSubasta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCerrarSubasta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAbrirSubasta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
-            .addGroup(jPanelIzqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelIzqLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(btnAbrirSubasta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
         );
         jPanelIzqLayout.setVerticalGroup(
             jPanelIzqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelIzqLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(96, 96, 96)
                 .addComponent(btnRegistrarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnListarProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(95, 95, 95)
+                .addGap(33, 33, 33)
+                .addComponent(btnAbrirSubasta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
                 .addComponent(btnCerrarSubasta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
-            .addGroup(jPanelIzqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanelIzqLayout.createSequentialGroup()
-                    .addGap(170, 170, 170)
-                    .addComponent(btnAbrirSubasta, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(213, Short.MAX_VALUE)))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         jPanelCentral.setLayout(new java.awt.BorderLayout());
 
-        label1.setFont(new java.awt.Font("Century Gothic", 1, 19)); // NOI18N
-        label1.setText("MENÚ ADMINISTRADOR");
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
+        jLabel1.setText("Menú Administrador");
 
         javax.swing.GroupLayout jPanelSupLayout = new javax.swing.GroupLayout(jPanelSup);
         jPanelSup.setLayout(jPanelSupLayout);
         jPanelSupLayout.setHorizontalGroup(
             jPanelSupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSupLayout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(291, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSupLayout.createSequentialGroup()
+                .addContainerGap(302, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(257, 257, 257))
         );
         jPanelSupLayout.setVerticalGroup(
             jPanelSupLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSupLayout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelSupLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
                 .addContainerGap())
         );
 
@@ -247,9 +246,9 @@ public class JDialogMenuAdmin extends javax.swing.JDialog {
     private javax.swing.JButton btnCerrarSubasta;
     private javax.swing.JButton btnListarProductos;
     private javax.swing.JButton btnRegistrarProducto;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanelCentral;
     private javax.swing.JPanel jPanelIzq;
     private javax.swing.JPanel jPanelSup;
-    private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 }

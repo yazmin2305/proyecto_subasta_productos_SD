@@ -1,6 +1,7 @@
 
-package view;
+package view.SubastaAdmin;
 
+import view.*;
 import javax.swing.JOptionPane;
 import services.AdministradorServices;
 
@@ -49,6 +50,7 @@ public class JDialogInicioSesionAdmin extends javax.swing.JDialog {
 
         pswInicioAdmin.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
 
+        btnInicioSesion.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         btnInicioSesion.setText("Ingresar");
         btnInicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
