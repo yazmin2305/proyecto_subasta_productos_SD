@@ -10,6 +10,7 @@ import services.ClienteServices;
  * @author YazminG, ErikaC
  */
 public class JDialogInicioSesionCli extends javax.swing.JDialog {
+
     /**
      * Creates new form JDialogInicioSesionCli
      */
@@ -105,36 +106,22 @@ public class JDialogInicioSesionCli extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioSesionActionPerformed
+        inicioSesionCliente();
+    }//GEN-LAST:event_btnInicioSesionActionPerformed
+
+    private void inicioSesionCliente() {
         ClienteServices objClientServices = new ClienteServices();
         String login = txtLoginInicio.getText();
         String contrasenia = new String(pswInicioCliente.getPassword());
         boolean verificarCliente = objClientServices.inicioSesionCli(login, contrasenia);
-        if(verificarCliente){
+        if (verificarCliente) {
             JDialogMenuCliente objDialogMenuCliente = new JDialogMenuCliente(this, false);
             objDialogMenuCliente.setLocationRelativeTo(null);
             objDialogMenuCliente.setVisible(true);
-        }else{
+        } else {
             JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos", "Inicio Sesión", JOptionPane.WARNING_MESSAGE);
         }
-        txtLoginInicio.setText("");
-        pswInicioCliente.setText("");
-    }//GEN-LAST:event_btnInicioSesionActionPerformed
-
-//    public static void main(String args[]) {
-//        /* Create and display the dialog */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                JDialogInicioSesionCli dialog = new JDialogInicioSesionCli(new javax.swing.JFrame(), true);
-//                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-//                    @Override
-//                    public void windowClosing(java.awt.event.WindowEvent e) {
-//                        System.exit(0);
-//                    }
-//                });
-//                dialog.setVisible(true);
-//            }
-//        });
-//    }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInicioSesion;
