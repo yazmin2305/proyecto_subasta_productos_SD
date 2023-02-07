@@ -21,10 +21,10 @@ public class SubastaServices {
         this.objClientePeticiones = ClientBuilder.newClient().register(new JacksonFeature());
     }
     
-    public Float consultarSubastaProducto(Integer codigo) {
+    public Float valorActualSubasta(Integer codigo) {
         float valor_actual=0;
 
-        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/" + "subastaProducto/"+ codigo);
+        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/" + "valorActualSubasta/"+ codigo);
 
         Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
 

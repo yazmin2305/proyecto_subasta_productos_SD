@@ -16,6 +16,7 @@ import org.glassfish.jersey.jackson.JacksonFeature;
  * @author YazminG, ErikaC
  */
 public class ProductoServices {
+
     private String endPoint;
     private Client objClientePeticiones;
 
@@ -23,7 +24,7 @@ public class ProductoServices {
         this.endPoint = "http://localhost:5001/api/productos";
         this.objClientePeticiones = ClientBuilder.newClient().register(new JacksonFeature());
     }
-    
+
     public Producto consultarProducto(Integer codigo) {
         Producto objProducto = null;
 
@@ -35,7 +36,7 @@ public class ProductoServices {
 
         return objProducto;
     }
-    
+
     public List<Producto> ListarProductos(String estado) {
         List<Producto> listaProductos = null;
 
@@ -43,9 +44,22 @@ public class ProductoServices {
 
         Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
 
-        listaProductos = objPeticion.get(new GenericType<List<Producto>>() {});
+        listaProductos = objPeticion.get(new GenericType<List<Producto>>() {
+        });
 
         return listaProductos;
     }
-    
+
+    public Producto consultarProductoSubastado(String estado) {
+        Producto objProducto = null;
+
+        WebTarget target = this.objClientePeticiones.target(this.endPoint + "/" + "productoSubastado/"+ estado);
+
+        Invocation.Builder objPeticion = target.request(MediaType.APPLICATION_JSON_TYPE);
+
+        objProducto = objPeticion.get(Producto.class);
+
+        return objProducto;
+    }
+
 }
