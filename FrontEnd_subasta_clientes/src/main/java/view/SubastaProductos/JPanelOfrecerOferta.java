@@ -141,13 +141,19 @@ public class JPanelOfrecerOferta extends javax.swing.JPanel {
         ofrecerOferta();
     }//GEN-LAST:event_btnOfrecerOfertaActionPerformed
     private void consultarProducto(){
-        ProductoServices objPServices = new ProductoServices();
-        SubastaServices objSservices = new SubastaServices();
-        Producto objP = objPServices.consultarProductoSubastado("Subastando");
-        objS = objSservices.consultarSubastaActual(objP.getCodigo());
-        this.txtNombreP.setText(objP.getNombre());
-        valorActual = objS.getValor_actual();
-        this.txtValorActual.setText(String.valueOf(objS.getValor_actual()));        
+        try{
+            ProductoServices objPServices = new ProductoServices();
+            SubastaServices objSservices = new SubastaServices();
+            Producto objP = objPServices.consultarProductoSubastado("Subastando");
+            objS = objSservices.consultarSubastaActual(objP.getCodigo());
+            this.txtNombreP.setText(objP.getNombre());
+            valorActual = objS.getValor_actual();
+            this.txtValorActual.setText(String.valueOf(objS.getValor_actual()));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, "No hay una subasta abierta en el momento.", "Ofrecer oferta", JOptionPane.WARNING_MESSAGE);
+
+        }
+                
     }
     private void ofrecerOferta(){
         SubastaServices objSservices = new SubastaServices();

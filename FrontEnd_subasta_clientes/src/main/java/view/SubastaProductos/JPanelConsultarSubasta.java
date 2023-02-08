@@ -164,7 +164,7 @@ public class JPanelConsultarSubasta extends javax.swing.JPanel {
                         // En él, hacemos que el hilo duerma
                         Thread.sleep(4000);
                         // Y después realizamos las operaciones
-                        System.out.println("Me imprimo cada segundo");
+                        System.out.println("Me imprimo cada 4 segundos");
                         consultarProductoEnSubasta();
                         // Así, se da la impresión de que se ejecuta cada cierto tiempo
                     } catch (InterruptedException e) {
@@ -176,9 +176,6 @@ public class JPanelConsultarSubasta extends javax.swing.JPanel {
         // Creamos un hilo y le pasamos el runnable
         Thread hilo = new Thread(runnable);
         hilo.start();
-
-        // Y aquí podemos hacer cualquier cosa, en el hilo principal del programa
-        System.out.println("Yo imprimo en el hilo principal");
     }
 
     public void consultarProductoEnSubasta() {
@@ -188,14 +185,14 @@ public class JPanelConsultarSubasta extends javax.swing.JPanel {
             SubastaServices objSubastaServices = new SubastaServices();
             Float valor_subasta = objSubastaServices.valorActualSubasta(objProducto.getCodigo());
             if (objProducto != null) {
-                System.out.println("entraaa");
+                System.out.println("Subasta encontrada");
                 txtCodigo.setText(String.valueOf(objProducto.getCodigo()));
                 txtNombre.setText(objProducto.getNombre());
                 txtValorInicial.setText(String.valueOf(objProducto.getValor_inicial()));
                 txtEstado.setText(objProducto.getEstado());
                 txtValorSubasta.setText(String.valueOf(valor_subasta));
             }
-            JOptionPane.showMessageDialog(this, "Producto encontrado", "Buscar producto", JOptionPane.INFORMATION_MESSAGE);
+            //JOptionPane.showMessageDialog(this, "Producto encontrado", "Buscar producto", JOptionPane.INFORMATION_MESSAGE);
         } catch (Exception e) {
             txtNombre.setText("");
             txtValorInicial.setText("");
