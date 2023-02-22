@@ -6,6 +6,7 @@ Hay dos roles, los administradores que gestionan los productos a subastar y dete
 Se desarrollaron 9 servicios web, los cuales se describen a continuación:
 
 Servicio web 1: Permite a los clientes y administradores registrarse en la aplicación, con sus datos personales, login y contraseña.
+
 Servicio web 2: Permite a los clientes y administradores iniciar sesión.
 Servicio web 3: Permite a los administradores registrar un producto a ofertar.
 Servicio web 4: Permite a los administradores listar los productos a ofertar.
